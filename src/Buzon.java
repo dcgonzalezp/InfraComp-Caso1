@@ -7,8 +7,9 @@ public class Buzon  {
 	private  boolean hayNaranjas = false;
 	private int tamano;
 
-	private Object lock1 = new Object();
-	private Object lock2 = new Object();
+	private static Object lock1 = new Object();
+	private static Object lock2 = new Object();
+	private static Object lock3 = new Object();
 
 	public Buzon(int tamano) {
 		this.tamano = tamano;
@@ -19,16 +20,16 @@ public class Buzon  {
 		return productos;
 	}
 	
-//	public void conteo(int total) {
-//		synchronized (lock1) {
-//			while(productos.size() < total) {
-//				Thread.yield();
-//				System.out.println("feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-//			}
-//			
-//			
-//		}
-//	}
+	public void conteo(int total) {
+
+		synchronized (lock3) {
+			while(productos.size() < total) {
+				Thread.yield();
+				System.out.println("feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+			}
+			
+		}
+	}
 
 	public void guardarAzul(String producto) {
 
@@ -60,7 +61,7 @@ public class Buzon  {
 			productos.add(producto);
 			hayNaranjas = true;
 			//System.out.println(hayNaranjas);
-			lock1.notify();
+			//lock1.notify();
 			
 		}
 	}

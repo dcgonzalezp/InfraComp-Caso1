@@ -63,6 +63,6 @@ public class Main {
 				}
 			}
 		}
-		//procesoFinal.start();
+		procesoFinal.start();
 	}
 }

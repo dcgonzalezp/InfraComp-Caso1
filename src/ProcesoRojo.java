@@ -11,9 +11,9 @@ public class ProcesoRojo extends Thread{
 	
 	public void mostrarResultados() {
 		int size = buzonFinal.darAlmacen().size();
-		//buzonFinal.conteo(size);
+		buzonFinal.conteo(size);
 		
-		int contador = 1;
+		int contador = 0;
 		for (int i = 0; i < size; i++) {
 			String[] strs = buzonFinal.darAlmacen().get(i).split(" ");
 			int num = Integer.parseInt(strs[0]);
@@ -22,7 +22,7 @@ public class ProcesoRojo extends Thread{
 				contador++;
 				i = 0;
 			}
-			if (contador == numGlobalTotalProductos) {
+			if (contador == numGlobalTotalProductos-1) {
 				break;
 			}
 		}
