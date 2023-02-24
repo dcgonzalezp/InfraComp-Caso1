@@ -25,6 +25,7 @@ public class Main {
 		buzon1 = new Buzon(tamanoBuzon);
 		buzon2 = new Buzon(tamanoBuzon);
 		asig = new Asignador();
+		
 		ProcesoNaranja N;
 		ProcesoAzul A;
 		
@@ -55,10 +56,12 @@ public class Main {
 					if(j == 0) {
 						N = new ProcesoNaranja(buzon2, buzonFinal, asig, productosACrear, i, asig.asignarIdNaranja());
 						N.start();
+						N.join();
 					}
 					else {
 						A = new ProcesoAzul(buzon2, buzonFinal, asig, productosACrear, i, asig.asignarIdAzul());
 						A.start();
+						A.join();
 					}
 				}
 			}

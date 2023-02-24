@@ -22,7 +22,7 @@ public class ProcesoRojo extends Thread{
 				contador++;
 				i = 0;
 			}
-			if (contador == numGlobalTotalProductos-1) {
+			if (contador == numGlobalTotalProductos) {
 				break;
 			}
 		}

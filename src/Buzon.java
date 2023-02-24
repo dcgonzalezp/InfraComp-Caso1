@@ -3,10 +3,9 @@ import java.util.ArrayList;
 public class Buzon  {
 
 	private ArrayList<String> productos;
-	private  boolean hayAzules = false;
-	private  boolean hayNaranjas = false;
+	private boolean hayAzules = false;
+	private boolean hayNaranjas = false;
 	private int tamano;
-
 	private static Object lock1 = new Object();
 	private static Object lock2 = new Object();
 	private static Object lock3 = new Object();
@@ -25,7 +24,6 @@ public class Buzon  {
 		synchronized (lock3) {
 			while(productos.size() < total) {
 				Thread.yield();
-				System.out.println("feeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
 			}
 			
 		}
